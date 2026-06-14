@@ -25,7 +25,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
         <a href="#top" className="nav-logo">
-          Muhammad<span>.</span>
+          Muhammad Usman<span>.</span>
         </a>
         <button
           className="nav-toggle"
