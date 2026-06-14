@@ -1,9 +1,20 @@
 import { useMemo, useState } from "react";
 import { projects, categories } from "../data";
 
-// Live homepage screenshot for projects that have a public URL.
-const shot = (url) =>
-  `https://image.thum.io/get/width/1200/crop/820/noanimate/${url}`;
+// Projects with a real, locally-stored homepage screenshot.
+const REAL_SHOTS = new Set([
+  "chatbot-ai", "deftgpt", "chex-ai", "yourteacher-ai", "scale-mediation",
+  "veriport", "optevo", "inventhub", "brandbassador", "capa",
+]);
+
+const slugify = (s) =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+// Real screenshot when we have one, otherwise the generated dashboard mockup.
+const imageFor = (name) => {
+  const slug = slugify(name);
+  return REAL_SHOTS.has(slug) ? `/shots/${slug}.png` : `/shots/${slug}.svg`;
+};
 
 const initials = (name) =>
   name
@@ -70,16 +81,14 @@ export default function Projects() {
               >
                 <div className="project-media">
                   <div className="project-media-ph">{initials(p.name)}</div>
-                  {p.link && (
-                    <img
-                      src={shot(p.link)}
-                      alt={`${p.name} website screenshot`}
-                      loading="lazy"
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                      }}
-                    />
-                  )}
+                  <img
+                    src={imageFor(p.name)}
+                    alt={`${p.name} preview`}
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
                   <span className="project-tag">{p.category}</span>
                 </div>
 
