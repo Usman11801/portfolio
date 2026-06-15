@@ -1,24 +1,11 @@
 import { useMemo, useState } from "react";
 import { projects, categories } from "../data";
 
-// Projects with a real, locally-stored homepage screenshot.
-const REAL_SHOTS = new Set([
-  "chatbot-ai", "deftgpt", "chex-ai", "yourteacher-ai", "scale-mediation",
-  "veriport", "optevo", "inventhub", "brandbassador", "capa",
-  "orderry", "helpspot", "noterro", "bestrx", "goskills",
-  "spires-online-tutors", "tenantcloud", "billdu", "routific", "gofreight",
-  "buildern", "practicepanther", "dashthis", "insense", "prekindle",
-  "planning-pod", "future", "chownow",
-]);
-
 const slugify = (s) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-// Real screenshot when we have one, otherwise the generated dashboard mockup.
-const imageFor = (name) => {
-  const slug = slugify(name);
-  return REAL_SHOTS.has(slug) ? `/shots/${slug}.png` : `/shots/${slug}.svg`;
-};
+// Every project has a real, locally-stored homepage screenshot.
+const imageFor = (name) => `/shots/${slugify(name)}.png`;
 
 const initials = (name) =>
   name
