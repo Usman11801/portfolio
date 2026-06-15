@@ -9,7 +9,7 @@ export const profile = {
     "Building scalable, secure & AI-powered web and mobile applications.",
   location: "Lahore, Pakistan",
   phone: "+92 304 3308478",
-  email: "Usmanduvofficial@gmail.com",
+  email: "usmandevofficial@gmail.com",
   github: "https://github.com/Usman11801",
   linkedin: "https://www.linkedin.com/in/muhammad-usman-0b7975163/",
   experienceYears: "8+",
