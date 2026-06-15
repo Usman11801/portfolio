@@ -5,6 +5,10 @@ import { projects, categories } from "../data";
 const REAL_SHOTS = new Set([
   "chatbot-ai", "deftgpt", "chex-ai", "yourteacher-ai", "scale-mediation",
   "veriport", "optevo", "inventhub", "brandbassador", "capa",
+  "orderry", "helpspot", "noterro", "bestrx", "goskills",
+  "spires-online-tutors", "tenantcloud", "billdu", "routific", "gofreight",
+  "buildern", "practicepanther", "dashthis", "insense", "prekindle",
+  "planning-pod", "future", "chownow",
 ]);
 
 const slugify = (s) =>
